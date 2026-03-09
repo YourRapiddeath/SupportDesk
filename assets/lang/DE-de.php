@@ -314,6 +314,7 @@ return array (
   'settings_css_status_inactive_has_css' => '(Gespeichertes CSS ist vorhanden, aber inaktiv)',
   'settings_css_theme_switch_hint' => '💡 Beim Wechsel des Themes wird Custom CSS automatisch deaktiviert.',
   'supporters_title' => 'Supporter verwalten',
+  'supporters_account_save' => 'Geschützt',
   'add_new_supporter_title' => 'Neuen Support-Mitarbeiter hinzufügen',
   'supporters_full_name' => 'Vollständiger Name:',
   'supporters_username' => 'Benutzername:',

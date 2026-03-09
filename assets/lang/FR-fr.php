@@ -368,6 +368,7 @@ return [
 
     # Supporters
     'supporters_title' => 'Gérer les supporters',
+    'supporters_account_save' => 'Protéger',
     'add_new_supporter_title' => 'Ajouter un nouvel agent support',
     'supporters_full_name' => 'Nom complet :',
     'supporters_username' => 'Nom d\'utilisateur :',

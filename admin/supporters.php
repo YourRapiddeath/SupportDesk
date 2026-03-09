@@ -131,7 +131,7 @@ $allCategories = $stmt->fetchAll();
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label"><?=$translator->translate('supporters_username')?>></label>
+                            <label class="form-label"><?=$translator->translate('supporters_username')?></label>
                             <input type="text" name="username" class="form-control" required>
                         </div>
 
