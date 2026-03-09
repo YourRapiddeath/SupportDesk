@@ -1,0 +1,84 @@
+# Support System - Git Ignore
+# Diese Datei verhindert, dass sensible oder temporäre Dateien ins Repository gelangen
+
+# Konfigurationsdatei mit sensiblen Daten
+config.php
+
+# Logs
+*.log
+logs/
+error.log
+access.log
+
+# Uploads und User-Daten
+uploads/
+!uploads/.gitkeep
+uploads/avatars/*
+!uploads/avatars/.gitkeep
+
+# Temporäre Dateien
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# IDE und Editor-Dateien
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+nbproject/
+
+# Backup-Dateien
+*.bak
+*.backup
+*.old
+backup/
+backups/
+
+# Cache-Verzeichnisse
+cache/
+tmp/
+temp/
+
+# Composer (falls verwendet)
+/vendor/
+composer.lock
+
+# NPM (falls verwendet)
+node_modules/
+package-lock.json
+
+# OS-spezifische Dateien
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Sessions (falls lokal gespeichert)
+sessions/
+*.sess
+
+# Datenbank-Dumps (außer schema)
+*.sql.gz
+*-dump.sql
+backup-*.sql
+
+# Installationsdatei (nach Installation)
+# Entfernen Sie das # wenn Installation abgeschlossen ist
+# install.php
+
+# Test-Dateien
+test.php
+phpinfo.php
+info.php
+debug.php
+

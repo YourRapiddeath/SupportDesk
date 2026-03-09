@@ -1,0 +1,1277 @@
+﻿/* ═══════════════════════════════════════════════════════════════════════════
+   GTA ROLEPLAY THEME  –  Support Systems
+   Los Santos Police Department vibes – Nacht, Neon, Cops & Muscle Cars
+   ═══════════════════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Pricedown+Bl&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* ── GTA Palette ───────────────────────────────────────────────────────── */
+    --gta-yellow:      #F4C818;
+    --gta-yellow-dark: #C8A010;
+    --gta-yellow-light:#FFE04A;
+    --gta-orange:      #E87020;
+    --gta-red:         #C0201A;
+    --gta-green:       #4CAF50;
+    --gta-green-dark:  #2E7A32;
+    --gta-blue:        #1A8FD1;
+    --gta-blue-dark:   #0D5E8A;
+    --gta-cyan:        #00C8E0;
+    --gta-purple:      #8B30D0;
+    --gta-pink:        #E040A0;
+    --gta-white:       #F0F0F0;
+    --gta-asphalt:     #1A1A1E;
+    --gta-charcoal:    #111114;
+    --gta-dark:        #0C0C10;
+    --gta-panel:       #181820;
+    --gta-stripe:      #22222A;
+
+    /* ── Semantic ──────────────────────────────────────────────────────────── */
+    --primary:        #F4C818;
+    --primary-dark:   #C8A010;
+    --primary-light:  #FFE04A;
+    --secondary:      #1A8FD1;
+    --secondary-dark: #0D5E8A;
+    --accent:         #E87020;
+    --accent-dark:    #B85010;
+    --success:        #4CAF50;
+    --warning:        #E87020;
+    --danger:         #C0201A;
+    --info:           #1A8FD1;
+
+    /* ── Backgrounds ───────────────────────────────────────────────────────── */
+    --background:  #0C0C10;
+    --surface:     #181820;
+    --surface-2:   #1E1E28;
+    --surface-3:   #111118;
+    --surface-4:   #22222C;
+
+    /* ── Text ──────────────────────────────────────────────────────────────── */
+    --text:           #E8E8E0;
+    --text-secondary: #A0A098;
+    --text-light:     #606058;
+    --text-muted:     #303030;
+    --text-bright:    #FFFFFF;
+    --text-dark:      #0C0C10;
+
+    /* ── Borders ───────────────────────────────────────────────────────────── */
+    --border:        rgba(244,200,24,0.14);
+    --border-strong: rgba(244,200,24,0.32);
+    --separator:     rgba(244,200,24,0.06);
+
+    /* ── Glows ─────────────────────────────────────────────────────────────── */
+    --glow-yellow: 0 0 8px #F4C818, 0 0 22px rgba(244,200,24,0.45), 0 0 50px rgba(244,200,24,0.15);
+    --glow-blue:   0 0 8px #1A8FD1, 0 0 20px rgba(26,143,209,0.40), 0 0 40px rgba(26,143,209,0.12);
+    --glow-cyan:   0 0 8px #00C8E0, 0 0 22px rgba(0,200,224,0.40),  0 0 45px rgba(0,200,224,0.12);
+    --glow-red:    0 0 8px #C0201A, 0 0 20px rgba(192,32,26,0.40),  0 0 40px rgba(192,32,26,0.12);
+
+    /* ── Shadows ───────────────────────────────────────────────────────────── */
+    --shadow-sm:  0 2px 8px  rgba(0,0,0,0.7);
+    --shadow:     0 4px 20px rgba(0,0,0,0.8);
+    --shadow-lg:  0 8px 40px rgba(0,0,0,0.9);
+
+    /* ── Gradients ─────────────────────────────────────────────────────────── */
+    --yellow-gradient:  linear-gradient(90deg, #C8A010 0%, #F4C818 40%, #FFE04A 60%, #C8A010 100%);
+    --panel-gradient:   linear-gradient(180deg, #1E1E28 0%, #181820 60%, #111118 100%);
+    --hero-gradient:    linear-gradient(135deg, #0C0C10 0%, #181820 50%, #0C0C10 100%);
+    --stripe-gradient:  repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 6px,
+        rgba(244,200,24,0.04) 6px,
+        rgba(244,200,24,0.04) 12px
+    );
+}
+
+/* ── Reset ──────────────────────────────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+body {
+    font-family: 'Rajdhani', 'Barlow Condensed', -apple-system, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: var(--background);
+    background-image:
+        var(--stripe-gradient),
+        radial-gradient(ellipse at 20% 0%,   rgba(244,200,24,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%,  rgba(26,143,209,0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%,   rgba(0,200,224,0.02)  0%, transparent 60%);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+.card-left-ticket {
+    /* Hintergrund halbtransparent mit Gradient */
+    background: rgba(36, 34, 39, 0.5);
+    /* Optional: Blur für Glassmorphism */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* Rundung und Rahmen */
+    border-radius: 6px;
+    border: 1px solid rgba(25, 25, 33, 0.5);
+
+    /* Shadow */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1), inset 0 1px 0 rgba(232,56,106,0.05);
+
+    /* Layout */
+    padding: 0;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    position: relative;
+
+    /* Animation & Übergänge */
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    animation: rl-slide-up 0.22s ease both;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   GTA FIGUREN & FAHRZEUGE als SVG data-URI
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Animationen ─────────────────────────────────────────────────────────────── */
+@keyframes gta-drive {
+    0%   { transform: translateX(120%) scaleX(-1); }
+    100% { transform: translateX(-120%) scaleX(-1); }
+}
+
+@keyframes gta-drive-rev {
+    0%   { transform: translateX(-120%); }
+    100% { transform: translateX(120%);  }
+}
+
+@keyframes gta-siren {
+    0%, 49%  { background: #1A8FD1; box-shadow: 0 0 14px #1A8FD1, 0 0 28px rgba(26,143,209,0.5); }
+    50%, 100%{ background: #C0201A; box-shadow: 0 0 14px #C0201A, 0 0 28px rgba(192,32,26,0.5); }
+}
+
+@keyframes gta-yellow-pulse {
+    0%, 100% { box-shadow: var(--glow-yellow); }
+    50%       { box-shadow: 0 0 16px #F4C818, 0 0 40px rgba(244,200,24,0.65), 0 0 80px rgba(244,200,24,0.22); }
+}
+
+@keyframes gta-flicker {
+    0%, 92%, 100% { opacity: 1; }
+    93%, 97%      { opacity: 0.7; }
+    95%           { opacity: 0.3; }
+}
+
+@keyframes gta-stripe-move {
+    from { background-position: 0 0;    }
+    to   { background-position: 40px 0; }
+}
+
+@keyframes gta-slide-up {
+    from { transform: translateY(12px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes gta-pop {
+    0%   { transform: scale(0.88); opacity: 0; }
+    70%  { transform: scale(1.04);             }
+    100% { transform: scale(1);    opacity: 1; }
+}
+
+@keyframes gta-scan {
+    0%   { top: -2px; }
+    100% { top: 100%; }
+}
+
+/* ── Navigation ──────────────────────────────────────────────────────────────── */
+.navbar {
+    background: var(--gta-charcoal);
+    border-bottom: 3px solid var(--gta-yellow);
+    padding: 0;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.85), 0 0 30px rgba(244,200,24,0.08);
+    overflow: visible;
+}
+
+/* Gelber Leuchtstreifen */
+.navbar::before {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0; right: 0;
+    height: 3px;
+    background: var(--yellow-gradient);
+    background-size: 200% 100%;
+    animation: gta-stripe-move 1.8s linear infinite;
+}
+
+/* Blaulicht-Sirene rechts in der Navbar */
+.navbar::after {
+    content: '';
+    position: absolute;
+    top: 50%; right: 14px;
+    transform: translateY(-50%);
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    animation: gta-siren 0.6s step-start infinite;
+    pointer-events: none;
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 54px;
+    gap: 8px;
+}
+
+.navbar-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--gta-yellow);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 0 12px rgba(244,200,24,0.5);
+    animation: gta-flicker 6s infinite;
+}
+
+/* Polizei-Stern als Brand-Icon */
+.navbar-brand::before {
+    content: '★';
+    display: inline-block;
+    font-size: 20px;
+    color: var(--gta-yellow);
+    filter: drop-shadow(0 0 6px rgba(244,200,24,0.7));
+    animation: gta-yellow-pulse 2.5s ease-in-out infinite;
+    line-height: 1;
+}
+
+.navbar-menu { display: flex; gap: 0; align-items: stretch; }
+
+.navbar-menu > a {
+    color: rgba(240,240,240,0.65);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    transition: all 0.14s;
+    border-bottom: 3px solid transparent;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.navbar-menu > a:hover {
+    color: var(--gta-yellow);
+    background: rgba(244,200,24,0.06);
+    border-bottom-color: var(--gta-yellow);
+    text-shadow: 0 0 8px rgba(244,200,24,0.4);
+}
+
+/* ── Dropdown ────────────────────────────────────────────────────────────────── */
+.dropdown { position: relative; display: flex; align-items: stretch; }
+
+.dropdown-toggle {
+    color: rgba(240,240,240,0.65);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 6px;
+    transition: all 0.14s;
+    border-bottom: 3px solid transparent;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.dropdown-toggle:hover {
+    color: var(--gta-yellow);
+    background: rgba(244,200,24,0.06);
+    border-bottom-color: var(--gta-yellow);
+    text-shadow: 0 0 8px rgba(244,200,24,0.4);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    background: var(--gta-charcoal);
+    border: 1px solid var(--border-strong);
+    border-top: 3px solid var(--gta-yellow);
+    border-radius: 0 0 6px 6px;
+    box-shadow: var(--shadow-lg), var(--glow-yellow);
+    min-width: 220px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transform-origin: top left;
+    transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+    overflow: hidden;
+}
+
+.dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    animation: gta-pop 0.18s ease;
+}
+
+.dropdown-menu-right { left: auto; right: 0; transform-origin: top right; }
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--separator);
+    transition: background 0.12s, color 0.12s;
+}
+
+.dropdown-menu a:last-child { border-bottom: none; }
+
+.dropdown-menu a:hover {
+    background: rgba(244,200,24,0.08);
+    color: var(--gta-yellow);
+    text-shadow: 0 0 8px rgba(244,200,24,0.3);
+}
+
+.dropdown-section-title {
+    padding: 8px 16px 4px;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--gta-yellow);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-shadow: 0 0 6px rgba(244,200,24,0.4);
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+    margin: 3px 0;
+}
+
+.navbar-user { display: flex; align-items: center; gap: 8px; padding-right: 24px; }
+
+.lang-flag-circular {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; height: 32px;
+    border-radius: 4px;
+    background: rgba(244,200,24,0.08);
+    border: 1.5px solid var(--border-strong);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.14s;
+}
+
+.lang-flag-circular:hover {
+    border-color: var(--gta-yellow);
+    box-shadow: var(--glow-yellow);
+    transform: scale(1.08);
+}
+
+.user-badge {
+    background: var(--gta-yellow);
+    color: var(--gta-dark);
+    padding: 3px 12px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+    box-shadow: 0 2px 8px rgba(244,200,24,0.35);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   FAHRZEUG-BANNER  –  fährt über die ganze Breite unter der Navbar durch
+   ══════════════════════════════════════════════════════════════════════════════ */
+.gta-car-banner {
+    width: 100%;
+    height: 42px;
+    background: var(--gta-dark);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+/* Straße */
+.gta-car-banner::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(244,200,24,0.5) 0,
+        rgba(244,200,24,0.5) 18px,
+        transparent 18px,
+        transparent 36px
+    );
+    background-size: 36px 2px;
+    transform: translateY(-50%);
+    animation: gta-stripe-move 0.5s linear infinite;
+}
+
+/* Muscle Car SVG fährt von rechts nach links */
+.gta-car-banner::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    width: 90px; height: 36px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 36'%3E%3C!-- Karosserie unten --%3E%3Crect x='4' y='20' width='82' height='12' rx='3' fill='%23F4C818'/%3E%3C!-- Dach/Kabine --%3E%3Cpolygon points='24,20 32,8 60,8 68,20' fill='%23C8A010'/%3E%3C!-- Windschutzscheibe vorne --%3E%3Cpolygon points='58,9 66,19 60,19 54,10' fill='%2300C8E0' opacity='0.85'/%3E%3C!-- Windschutzscheibe hinten --%3E%3Cpolygon points='32,9 26,19 32,19 38,10' fill='%2300C8E0' opacity='0.85'/%3E%3C!-- Seitenfenster --%3E%3Crect x='39' y='10' width='14' height='9' rx='1' fill='%2300C8E0' opacity='0.7'/%3E%3C!-- Motorhaube Streifen --%3E%3Crect x='60' y='20' width='22' height='5' rx='1' fill='%23E8B010'/%3E%3Crect x='64' y='21' width='3' height='3' rx='0.5' fill='%23C0201A'/%3E%3Crect x='69' y='21' width='3' height='3' rx='0.5' fill='%23C0201A'/%3E%3C!-- Grill --%3E%3Crect x='80' y='21' width='6' height='8' rx='1' fill='%23333340'/%3E%3Crect x='81' y='23' width='4' height='1.5' rx='0.5' fill='%23F4C818' opacity='0.8'/%3E%3Crect x='81' y='26' width='4' height='1.5' rx='0.5' fill='%23F4C818' opacity='0.8'/%3E%3C!-- Scheinwerfer --%3E%3Crect x='83' y='22' width='4' height='4' rx='1' fill='%23FFE88A' opacity='0.9'/%3E%3C!-- Heck --%3E%3Crect x='2' y='22' width='5' height='5' rx='1' fill='%23C0201A' opacity='0.9'/%3E%3C!-- Räder --%3E%3Ccircle cx='20' cy='32' r='5' fill='%23111118' stroke='%23888880' stroke-width='1.5'/%3E%3Ccircle cx='20' cy='32' r='2.5' fill='%23505050'/%3E%3Ccircle cx='70' cy='32' r='5' fill='%23111118' stroke='%23888880' stroke-width='1.5'/%3E%3Ccircle cx='70' cy='32' r='2.5' fill='%23505050'/%3E%3C!-- Auspuff --%3E%3Crect x='1' y='28' width='6' height='2' rx='1' fill='%23505058'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: gta-drive 8s linear infinite;
+}
+
+/* Cop Car fährt von links nach rechts */
+.gta-car-banner-cop {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────────────────── */
+.card {
+    background: var(--panel-gradient);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(244,200,24,0.04);
+    padding: 0;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    position: relative;
+    animation: gta-slide-up 0.22s ease both;
+}
+
+/* Gelber animierter Streifen */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--gta-yellow)  0px, var(--gta-yellow)  16px,
+        var(--gta-charcoal)16px, var(--gta-charcoal)24px
+    );
+    background-size: 40px 100%;
+    animation: gta-stripe-move 1.4s linear infinite;
+}
+
+/* Scan-Line Effekt */
+.card::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 40px;
+    background: linear-gradient(180deg, rgba(244,200,24,0.03) 0%, transparent 100%);
+    top: -2px;
+    pointer-events: none;
+    animation: gta-scan 4s linear infinite;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-lg), 0 0 24px rgba(244,200,24,0.10);
+}
+
+.card-header {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--gta-yellow);
+    padding: 12px 16px 10px;
+    border-bottom: 1px solid var(--separator);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244,200,24,0.03);
+    text-shadow: 0 0 10px rgba(244,200,24,0.35);
+}
+
+/* Polizei-Stern Icon */
+.card-header::before {
+    content: '★';
+    color: var(--gta-yellow);
+    font-size: 13px;
+    filter: drop-shadow(0 0 4px rgba(244,200,24,0.6));
+    flex-shrink: 0;
+}
+
+.card-body { color: var(--text); padding: 14px 16px 18px; }
+
+/* ── Forms ───────────────────────────────────────────────────────────────────── */
+.form-group { margin-bottom: 14px; }
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.form-control {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    background: rgba(244,200,24,0.03);
+    color: var(--text);
+    transition: border-color 0.14s, box-shadow 0.14s;
+    outline: none;
+    box-shadow: inset 0 0 12px rgba(0,0,0,0.5);
+}
+
+.form-control::placeholder { color: var(--text-muted); }
+
+.form-control:focus {
+    border-color: var(--gta-yellow);
+    box-shadow: var(--glow-yellow), inset 0 0 12px rgba(0,0,0,0.4);
+    background: rgba(244,200,24,0.05);
+}
+
+textarea.form-control { min-height: 100px; resize: vertical; }
+select.form-control { cursor: pointer; }
+
+/* ── Buttons – GTA 3D-Block Stil ─────────────────────────────────────────────── */
+.btn {
+    display: inline-block;
+    padding: 9px 22px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    transition: all 0.12s;
+    white-space: nowrap;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:active { transform: translateY(3px) scale(0.97); box-shadow: none !important; }
+
+.btn-primary {
+    background: var(--gta-yellow);
+    color: var(--gta-dark);
+    box-shadow: 0 5px 0 var(--gta-yellow-dark), var(--glow-yellow);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.btn-primary:hover {
+    background: var(--gta-yellow-light);
+    box-shadow: 0 6px 0 var(--gta-yellow-dark), 0 6px 24px rgba(244,200,24,0.4);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+    border-color: var(--gta-yellow);
+    color: var(--gta-yellow);
+    box-shadow: var(--glow-yellow);
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: var(--gta-green);
+    color: #fff;
+    box-shadow: 0 5px 0 var(--gta-green-dark);
+}
+
+.btn-success:hover { background: #5CC860; transform: translateY(-1px); box-shadow: 0 6px 0 var(--gta-green-dark); }
+
+.btn-danger {
+    background: var(--gta-red);
+    color: #fff;
+    box-shadow: 0 5px 0 #8A1010;
+}
+
+.btn-danger:hover { background: #D82820; transform: translateY(-1px); }
+
+.btn-sm { padding: 5px 14px; font-size: 11px; border-radius: 2px; }
+
+.btn-save {
+    background: var(--gta-yellow);
+    color: var(--gta-dark);
+    box-shadow: 0 5px 0 var(--gta-yellow-dark), var(--glow-yellow);
+    animation: gta-yellow-pulse 2.5s ease-in-out infinite;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.btn-save:hover {
+    background: var(--gta-yellow-light);
+    box-shadow: 0 6px 0 var(--gta-yellow-dark), 0 8px 30px rgba(244,200,24,0.5);
+    transform: translateY(-1px);
+    animation: none;
+}
+
+/* ── Badges ──────────────────────────────────────────────────────────────────── */
+.badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+    border: 1px solid;
+}
+
+.badge-open        { color: var(--gta-yellow);  border-color: rgba(244,200,24,0.5);   background: rgba(244,200,24,0.1);  box-shadow: 0 0 6px rgba(244,200,24,0.15); }
+.badge-in-progress { color: #F4A018;             border-color: rgba(244,160,24,0.45);  background: rgba(244,160,24,0.08); }
+.badge-pending     { color: var(--gta-blue);     border-color: rgba(26,143,209,0.45);  background: rgba(26,143,209,0.08); }
+.badge-resolved    { color: var(--gta-green);    border-color: rgba(76,175,80,0.45);   background: rgba(76,175,80,0.08);  }
+.badge-closed      { color: var(--text-light);   border-color: rgba(80,80,80,0.4);     background: rgba(80,80,80,0.07);   }
+.badge-low         { color: var(--gta-cyan);     border-color: rgba(0,200,224,0.4);    background: rgba(0,200,224,0.07);  }
+.badge-medium      { color: #F4A018;             border-color: rgba(244,160,24,0.4);   background: rgba(244,160,24,0.07); }
+.badge-high        { color: var(--gta-orange);   border-color: rgba(232,112,32,0.45);  background: rgba(232,112,32,0.08); }
+.badge-urgent      { color: #FF4040;             border-color: rgba(255,64,64,0.5);    background: rgba(255,64,64,0.09);  box-shadow: 0 0 6px rgba(255,64,64,0.2); }
+
+/* ── Table ───────────────────────────────────────────────────────────────────── */
+.table { width: 100%; border-collapse: collapse; }
+
+.table thead { background: var(--gta-charcoal); }
+
+.table th {
+    padding: 11px 14px;
+    text-align: left;
+    font-weight: 800;
+    color: var(--gta-yellow);
+    border-bottom: 2px solid var(--gta-yellow);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-shadow: 0 0 8px rgba(244,200,24,0.35);
+}
+
+.table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--separator);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--surface);
+    transition: background 0.12s, color 0.12s;
+}
+
+.table tbody tr:last-child td { border-bottom: none; }
+.table tbody tr:hover td { background: rgba(244,200,24,0.04); color: var(--text); }
+
+/* ── Stats Grid ──────────────────────────────────────────────────────────────── */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+}
+
+.stat-card {
+    background: var(--panel-gradient);
+    color: var(--text);
+    padding: 1.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+    animation: gta-slide-up 0.22s ease both;
+}
+
+.stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg), var(--glow-yellow); border-color: var(--border-strong); }
+
+/* Farbige Akzente pro Card */
+.stat-card:nth-child(1) { border-top: 3px solid var(--gta-yellow); }
+.stat-card:nth-child(2) { border-top: 3px solid var(--gta-blue);   }
+.stat-card:nth-child(3) { border-top: 3px solid var(--gta-green);  }
+.stat-card:nth-child(4) { border-top: 3px solid var(--gta-red);    }
+
+/* Fahrzeug-Emoji als Deko rechts unten */
+.stat-card:nth-child(1)::after { content: '🚗'; position: absolute; bottom: 8px; right: 12px; font-size: 2.2rem; opacity: 0.13; line-height: 1; }
+.stat-card:nth-child(2)::after { content: '🚔'; position: absolute; bottom: 8px; right: 12px; font-size: 2.2rem; opacity: 0.13; line-height: 1; }
+.stat-card:nth-child(3)::after { content: '🏍'; position: absolute; bottom: 8px; right: 12px; font-size: 2.2rem; opacity: 0.13; line-height: 1; }
+.stat-card:nth-child(4)::after { content: '🚁'; position: absolute; bottom: 8px; right: 12px; font-size: 2.2rem; opacity: 0.13; line-height: 1; }
+
+.stat-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+    color: var(--gta-yellow);
+    text-shadow: 0 0 14px rgba(244,200,24,0.5);
+    letter-spacing: -0.01em;
+}
+
+.stat-card p { font-size: 10px; color: var(--text-light); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Barlow Condensed', sans-serif; }
+
+/* ── Messages ────────────────────────────────────────────────────────────────── */
+.message-list { margin-bottom: 1.2rem; }
+.message-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 5px; font-size: 11px; color: var(--text-light); }
+.message-author { font-weight: 800; color: var(--gta-yellow); font-size: 13px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.07em; text-transform: uppercase; text-shadow: 0 0 6px rgba(244,200,24,0.3); }
+.message-content { font-size: 14px; color: var(--text); line-height: 1.6; font-weight: 500; }
+
+/* ── Notes ───────────────────────────────────────────────────────────────────── */
+.note { background: rgba(244,200,24,0.04); border-left: 2px solid var(--gta-yellow); border-radius: 0 3px 3px 0; padding: 10px 14px; margin-bottom: 10px; }
+.note-header { display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 11px; }
+.note-author { font-weight: 800; color: var(--gta-yellow); font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; }
+.note-date   { color: var(--text-muted); }
+
+/* ── Avatar & Bio ────────────────────────────────────────────────────────────── */
+.msg-author-row { display: flex; align-items: center; gap: 10px; }
+.msg-avatar { width: 38px; height: 38px; border-radius: 3px; object-fit: cover; flex-shrink: 0; border: 1.5px solid var(--border-strong); box-shadow: 0 0 6px rgba(244,200,24,0.15); }
+.msg-avatar-placeholder { display: flex; align-items: center; justify-content: center; background: rgba(244,200,24,0.1); color: var(--gta-yellow); font-size: 0.85rem; font-weight: 800; border-radius: 3px; border: 1.5px solid var(--border-strong); font-family: 'Barlow Condensed', sans-serif; }
+.msg-author-info { display: flex; flex-direction: column; gap: 1px; }
+.msg-bio { font-size: 11px; color: var(--text-light); font-style: italic; max-width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.msg-date { font-size: 10px; color: var(--text-muted); white-space: nowrap; margin-left: auto; }
+
+/* ── Alerts ──────────────────────────────────────────────────────────────────── */
+.alert { padding: 11px 16px; margin-bottom: 12px; border-radius: 3px; font-size: 13px; font-weight: 600; display: flex; align-items: flex-start; gap: 10px; border: 1px solid; border-left-width: 3px; font-family: 'Rajdhani', sans-serif; }
+.alert::before { font-size: 16px; line-height: 1.3; flex-shrink: 0; }
+.alert-success { background: rgba(76,175,80,0.07);  color: #5CC860; border-color: rgba(76,175,80,0.25);   border-left-color: var(--gta-green); }
+.alert-success::before { content: '✔'; color: var(--gta-green); }
+.alert-error   { background: rgba(192,32,26,0.07);  color: #E05050; border-color: rgba(192,32,26,0.25);   border-left-color: var(--gta-red); }
+.alert-error::before   { content: '✖'; color: var(--gta-red); }
+.alert-info    { background: rgba(244,200,24,0.05); color: var(--gta-yellow); border-color: var(--border-strong); border-left-color: var(--gta-yellow); }
+.alert-info::before    { content: '★'; color: var(--gta-yellow); text-shadow: 0 0 6px rgba(244,200,24,0.5); }
+
+/* ── Auth ────────────────────────────────────────────────────────────────────── */
+.auth-container {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--background);
+    background-image:
+        var(--stripe-gradient),
+        radial-gradient(ellipse at 25% 40%, rgba(244,200,24,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 60%, rgba(26,143,209,0.05) 0%, transparent 55%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cop-Car links */
+.auth-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 3%;
+    width: 110px; height: 55px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 55'%3E%3C!-- Polizeiauto Karosserie --%3E%3Crect x='5' y='28' width='100' height='18' rx='4' fill='%231A1A1E' stroke='%23F4C818' stroke-width='2'/%3E%3C!-- Kabine --%3E%3Cpolygon points='28,28 36,12 76,12 84,28' fill='%231A8FD1'/%3E%3C!-- Windschutz vorne --%3E%3Cpolygon points='74,13 82,27 76,27 68,14' fill='%2300C8E0' opacity='0.8'/%3E%3C!-- Windschutz hinten --%3E%3Cpolygon points='38,13 30,27 36,27 44,14' fill='%2300C8E0' opacity='0.8'/%3E%3C!-- Seitenfenster --%3E%3Crect x='46' y='14' width='16' height='13' rx='1' fill='%2300C8E0' opacity='0.7'/%3E%3C!-- POLICE Streifen --%3E%3Crect x='10' y='33' width='90' height='5' fill='%23F4C818' opacity='0.9'/%3E%3Ctext x='30' y='38' font-family='Arial' font-size='4' font-weight='bold' fill='%231A1A1E' letter-spacing='3'%3EPOLICE%3C/text%3E%3C!-- Sirene oben --%3E%3Crect x='44' y='8' width='22' height='6' rx='2' fill='%23111118'/%3E%3Crect x='45' y='9' width='8' height='4' rx='1' fill='%231A8FD1'/%3E%3Crect x='57' y='9' width='8' height='4' rx='1' fill='%23C0201A'/%3E%3C!-- Scheinwerfer --%3E%3Crect x='99' y='30' width='7' height='6' rx='2' fill='%23FFE88A' opacity='0.95'/%3E%3C!-- Rücklichter --%3E%3Crect x='4' y='30' width='5' height='5' rx='1' fill='%23C0201A' opacity='0.9'/%3E%3C!-- Räder --%3E%3Ccircle cx='24' cy='46' r='8' fill='%23111118' stroke='%23F4C818' stroke-width='2'/%3E%3Ccircle cx='24' cy='46' r='4' fill='%23303038'/%3E%3Ccircle cx='86' cy='46' r='8' fill='%23111118' stroke='%23F4C818' stroke-width='2'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23303038'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: gta-drive-rev 10s linear infinite 1s;
+    opacity: 0.55;
+}
+
+/* Muscle Car rechts */
+.auth-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 3%;
+    width: 110px; height: 55px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 55'%3E%3C!-- Muscle-Car Karosserie --%3E%3Crect x='5' y='28' width='100' height='18' rx='3' fill='%23F4C818' stroke='%23C8A010' stroke-width='2'/%3E%3C!-- Motorhaube tief --%3E%3Cpolygon points='68,28 78,18 100,28' fill='%23C8A010'/%3E%3C!-- Heckspoiler --%3E%3Crect x='4' y='24' width='12' height='4' rx='1' fill='%23C8A010'/%3E%3C!-- Kabine --%3E%3Cpolygon points='30,28 40,12 74,12 80,28' fill='%23E8B010'/%3E%3C!-- Windschutz vorne --%3E%3Cpolygon points='72,13 78,27 72,27 66,14' fill='%2300C8E0' opacity='0.75'/%3E%3C!-- Windschutz hinten --%3E%3Cpolygon points='42,13 34,27 40,27 46,14' fill='%2300C8E0' opacity='0.75'/%3E%3C!-- Seitenfenster --%3E%3Crect x='48' y='14' width='16' height='13' rx='1' fill='%2300C8E0' opacity='0.65'/%3E%3C!-- Grill --%3E%3Crect x='97' y='30' width='8' height='10' rx='1' fill='%23303038'/%3E%3Crect x='98' y='32' width='5' height='1.5' rx='0.5' fill='%23F4C818' opacity='0.8'/%3E%3Crect x='98' y='35' width='5' height='1.5' rx='0.5' fill='%23F4C818' opacity='0.8'/%3E%3C!-- Scheinwerfer --%3E%3Crect x='100' y='30' width='6' height='5' rx='1' fill='%23FFE88A' opacity='0.9'/%3E%3C!-- Rücklicht --%3E%3Crect x='4' y='30' width='5' height='5' rx='1' fill='%23C0201A' opacity='0.9'/%3E%3C!-- Auspuff --%3E%3Crect x='2' y='38' width='8' height='3' rx='1' fill='%23606068'/%3E%3Crect x='2' y='33' width='8' height='3' rx='1' fill='%23606068'/%3E%3C!-- Räder --%3E%3Ccircle cx='24' cy='46' r='8' fill='%23111118' stroke='%23A0A098' stroke-width='2'/%3E%3Ccircle cx='24' cy='46' r='3.5' fill='%23505058'/%3E%3Ccircle cx='86' cy='46' r='8' fill='%23111118' stroke='%23A0A098' stroke-width='2'/%3E%3Ccircle cx='86' cy='46' r='3.5' fill='%23505058'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: gta-drive 12s linear infinite;
+    opacity: 0.55;
+    transform: scaleX(-1);
+}
+
+.auth-card {
+    background: var(--panel-gradient);
+    border-radius: 4px;
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow-lg), var(--glow-yellow);
+    width: 100%; max-width: 400px;
+    overflow: hidden;
+    animation: gta-pop 0.22s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Fahrzeug-Banner auf der Login-Seite */
+.auth-card::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--gta-yellow) 0, var(--gta-yellow) 18px,
+        var(--gta-charcoal) 18px, var(--gta-charcoal) 28px
+    );
+    background-size: 46px 100%;
+    animation: gta-stripe-move 1.2s linear infinite;
+}
+
+.auth-card h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--gta-yellow);
+    padding: 20px 26px 14px;
+    text-align: center;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--separator);
+    background: rgba(244,200,24,0.03);
+    margin-bottom: 0;
+    text-shadow: 0 0 14px rgba(244,200,24,0.5);
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    animation: gta-yellow-pulse 3s ease-in-out infinite;
+}
+
+/* Sirenen-Lichter links und rechts */
+.auth-card h2::before {
+    content: '';
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gta-blue);
+    box-shadow: 0 0 10px var(--gta-blue), 0 0 20px rgba(26,143,209,0.5);
+    animation: gta-siren 0.6s step-start infinite;
+    flex-shrink: 0;
+}
+
+.auth-card h2::after {
+    content: '';
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gta-red);
+    box-shadow: 0 0 10px var(--gta-red), 0 0 20px rgba(192,32,26,0.5);
+    animation: gta-siren 0.6s step-start infinite reverse;
+    flex-shrink: 0;
+}
+
+.auth-card > *:not(h2) { padding-left: 26px; padding-right: 26px; }
+.auth-card > *:last-child { padding-bottom: 26px; }
+.auth-card > h2 + * { padding-top: 20px; }
+
+/* ── Ticket Code ─────────────────────────────────────────────────────────────── */
+.ticket-code-display {
+    background: rgba(244,200,24,0.05);
+    padding: 1.6rem;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 1.4rem;
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--glow-yellow);
+    position: relative;
+    overflow: hidden;
+    animation: gta-yellow-pulse 3s ease-in-out infinite;
+}
+
+.ticket-code-display::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(90deg, var(--gta-yellow) 0, var(--gta-yellow) 16px, var(--gta-charcoal) 16px, var(--gta-charcoal) 24px);
+    background-size: 40px 100%;
+    animation: gta-stripe-move 1.2s linear infinite;
+}
+
+.ticket-code-display h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+    color: var(--gta-yellow);
+    text-shadow: 0 0 20px rgba(244,200,24,0.6);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.ticket-code-display p { font-size: 12px; color: var(--text-secondary); font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.07em; }
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--gta-dark); }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--gta-yellow) 0%, var(--gta-yellow-dark) 100%); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gta-yellow-light); box-shadow: 0 0 6px rgba(244,200,24,0.4); }
+
+/* ── Public Navbar ───────────────────────────────────────────────────────────── */
+.public-navbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px;
+    height: 54px;
+    background: var(--gta-charcoal);
+    border-bottom: 3px solid var(--gta-yellow);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.85), 0 0 24px rgba(244,200,24,0.07);
+    position: sticky; top: 0; z-index: 100;
+    overflow: visible;
+}
+
+.public-navbar::before {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0; right: 0;
+    height: 3px;
+    background: var(--yellow-gradient);
+    background-size: 200% 100%;
+    animation: gta-stripe-move 1.8s linear infinite;
+}
+
+.public-navbar::after {
+    content: '';
+    position: absolute;
+    top: 50%; right: 14px;
+    transform: translateY(-50%);
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    animation: gta-siren 0.6s step-start infinite;
+    pointer-events: none;
+}
+
+.public-navbar-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--gta-yellow);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(244,200,24,0.4);
+    display: flex; align-items: center; gap: 8px;
+    animation: gta-flicker 8s infinite;
+}
+
+.public-navbar-brand::before { content: '★'; color: var(--gta-yellow); font-size: 16px; filter: drop-shadow(0 0 5px rgba(244,200,24,0.6)); }
+
+.public-navbar-actions { display: flex; align-items: center; gap: 8px; padding-right: 24px; }
+.public-navbar-actions .btn { padding: 5px 14px; font-size: 11px; margin-bottom: 0; }
+
+.public-navbar-actions .dropdown {
+    position: relative; display: flex; align-items: center;
+    border-left: 1px solid var(--border); padding-left: 10px; margin-left: 4px;
+}
+
+.public-container { max-width: 1200px; margin: 2rem auto; padding: 0 1.4rem; }
+
+.public-header { text-align: center; margin-bottom: 2rem; }
+
+.public-header h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--gta-yellow);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    text-shadow: 0 0 20px rgba(244,200,24,0.5), 0 2px 0 rgba(0,0,0,0.8);
+    animation: gta-flicker 7s infinite;
+}
+
+.public-header p { font-size: 14px; color: var(--text-secondary); font-weight: 600; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.06em; }
+
+.two-col-layout { display: grid; grid-template-columns: 1fr 460px; gap: 1.4rem; align-items: start; }
+.right-col { display: flex; flex-direction: column; gap: 1.4rem; }
+
+.faq-item { border-bottom: 1px solid var(--separator); padding-bottom: 0.9rem; margin-bottom: 0.9rem; }
+.faq-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.faq-item strong { display: block; margin-bottom: 3px; font-size: 13px; font-weight: 800; color: var(--gta-yellow); font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.07em; text-transform: uppercase; }
+.faq-item p { margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.55; font-weight: 500; }
+
+.dsgvo-box { background: rgba(244,200,24,0.03); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; margin-bottom: 12px; }
+.dsgvo-checkbox { display: flex; align-items: flex-start; gap: 10px; }
+.dsgvo-checkbox input[type="checkbox"] { margin-top: 2px; width: 15px; height: 15px; cursor: pointer; flex-shrink: 0; accent-color: var(--gta-yellow); }
+.dsgvo-checkbox label { flex: 1; cursor: pointer; font-size: 13px; line-height: 1.5; color: var(--text-secondary); font-weight: 600; }
+
+.success-message { text-align: center; padding: 2.5rem; }
+.success-message h2 { font-family: 'Barlow Condensed', sans-serif; color: var(--gta-yellow); margin-bottom: 0.6rem; font-size: 1.8rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; text-shadow: 0 0 14px rgba(244,200,24,0.5); }
+
+.ticket-code-display-public { background: rgba(244,200,24,0.04); border: 1px solid var(--border-strong); border-radius: 3px; padding: 16px; margin: 1rem 0; box-shadow: var(--glow-yellow); }
+.ticket-code-display-public .code { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; color: var(--gta-yellow); letter-spacing: 4px; text-transform: uppercase; text-shadow: 0 0 16px rgba(244,200,24,0.6); }
+
+.info-item { padding: 10px 14px; background: var(--surface-2); border-radius: 3px; font-size: 13px; color: var(--text-secondary); font-weight: 600; border: 1px solid var(--border); }
+
+/* ── Ticket View ─────────────────────────────────────────────────────────────── */
+.ticket-layout { display: grid; grid-template-columns: 1fr 340px; gap: 1.4rem; margin-bottom: 1.8rem; align-items: start; }
+.internal-feed { position: sticky; top: 1rem; height: fit-content; max-height: calc(100vh - 5rem); overflow-y: auto; align-self: start; }
+
+/* Mini Cop-Car oben als Deko in der Sidebar */
+.internal-feed::before {
+    content: '';
+    display: block;
+    width: 60px; height: 30px;
+    margin: 0 auto 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect x='3' y='15' width='54' height='12' rx='2' fill='%231A1A1E' stroke='%23F4C818' stroke-width='1.5'/%3E%3Cpolygon points='16,15 20,7 42,7 46,15' fill='%231A8FD1'/%3E%3Crect x='40' y='8' width='6' height='7' rx='1' fill='%2300C8E0' opacity='0.8'/%3E%3Crect x='16' y='8' width='6' height='7' rx='1' fill='%2300C8E0' opacity='0.8'/%3E%3Crect x='24' y='8' width='12' height='7' rx='1' fill='%2300C8E0' opacity='0.7'/%3E%3Crect x='8' y='18' width='44' height='4' rx='0' fill='%23F4C818' opacity='0.8'/%3E%3Crect x='24' y='4' width='12' height='4' rx='1' fill='%23111118'/%3E%3Crect x='25' y='5' width='4' height='2' rx='0.5' fill='%231A8FD1'/%3E%3Crect x='31' y='5' width='4' height='2' rx='0.5' fill='%23C0201A'/%3E%3Ccircle cx='13' cy='27' r='4' fill='%23111118' stroke='%23F4C818' stroke-width='1.2'/%3E%3Ccircle cx='13' cy='27' r='2' fill='%23303038'/%3E%3Ccircle cx='47' cy='27' r='4' fill='%23111118' stroke='%23F4C818' stroke-width='1.2'/%3E%3Ccircle cx='47' cy='27' r='2' fill='%23303038'/%3E%3Crect x='55' y='17' width='4' height='4' rx='1' fill='%23FFE88A' opacity='0.9'/%3E%3Crect x='1' y='17' width='3' height='3' rx='1' fill='%23C0201A' opacity='0.9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.45;
+}
+
+/* ── Tabs ────────────────────────────────────────────────────────────────────── */
+.tab-bar {
+    display: flex;
+    border-bottom: 2px solid var(--border-strong);
+    margin-bottom: 0;
+    background: var(--surface-3);
+    padding: 3px 3px 0;
+    gap: 2px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 7px 3px 5px;
+    font-size: 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 2px 2px 0 0;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: all 0.14s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 2px; line-height: 1.2;
+    position: relative;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: -2px;
+}
+
+.tab-btn .tab-icon { font-size: 0.9rem; line-height: 1; position: relative; display: inline-block; }
+
+.tab-badge {
+    position: absolute; top: -2px; right: -2px;
+    background: var(--gta-red);
+    color: #fff;
+    border-radius: 2px;
+    padding: 0 3px;
+    font-size: 8px; font-weight: 800;
+    line-height: 1.6; min-width: 13px;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    box-shadow: 0 0 6px rgba(192,32,26,0.4);
+}
+
+.tab-btn.active { color: var(--gta-yellow); background: rgba(244,200,24,0.06); border-color: var(--border-strong); border-bottom-color: var(--surface); text-shadow: 0 0 8px rgba(244,200,24,0.4); }
+.tab-btn:hover:not(.active) { color: var(--text-secondary); background: rgba(244,200,24,0.04); border-color: var(--border); }
+.tab-panel { display: none; padding: 12px 4px 4px; }
+.tab-panel.active { display: block; }
+
+/* ── Ticket Messages ─────────────────────────────────────────────────────────── */
+.message { margin-bottom: 10px; padding: 10px 14px; border-radius: 3px; font-size: 14px; line-height: 1.6; font-weight: 500; border: 1px solid var(--border); }
+.message.from-admin,
+.message.from-supporter { background: rgba(26,143,209,0.06); color: var(--text); border-color: rgba(26,143,209,0.2); border-left: 3px solid var(--gta-blue); border-radius: 0 3px 3px 0; }
+.message.from-user { background: rgba(244,200,24,0.04); color: var(--text); border-color: rgba(244,200,24,0.15); border-left: 3px solid var(--gta-yellow); border-radius: 0 3px 3px 0; }
+.message-internal { background: rgba(244,200,24,0.04) !important; border: 1px dashed rgba(244,200,24,0.28) !important; border-radius: 3px !important; }
+
+.internal-feed-label { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gta-dark); background: var(--gta-yellow); border-radius: 2px; display: inline-block; padding: 2px 10px; margin-bottom: 6px; box-shadow: var(--glow-yellow); font-family: 'Barlow Condensed', sans-serif; }
+
+/* ── Role Badges ─────────────────────────────────────────────────────────────── */
+.role-badge { display: inline-block; padding: 1px 7px; border-radius: 2px; font-size: 9px; font-weight: 800; margin-left: 6px; text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Barlow Condensed', sans-serif; border: 1px solid; }
+.role-badge.admin     { color: var(--gta-yellow); border-color: rgba(244,200,24,0.5);  background: rgba(244,200,24,0.1);  text-shadow: 0 0 5px rgba(244,200,24,0.35); }
+.role-badge.supporter { color: var(--gta-blue);   border-color: rgba(26,143,209,0.45); background: rgba(26,143,209,0.08); }
+.role-badge.user      { color: var(--text-light);  border-color: rgba(80,80,80,0.4);    background: rgba(80,80,80,0.06); }
+
+/* ── Internal Messages ───────────────────────────────────────────────────────── */
+.internal-message-item { background: rgba(244,200,24,0.04); border: 1px solid rgba(244,200,24,0.15); border-left: 2px solid var(--gta-yellow); border-radius: 0 3px 3px 0; padding: 8px 12px; margin-bottom: 8px; font-size: 13px; }
+.internal-message-header { display: flex; justify-content: space-between; margin-bottom: 3px; }
+.internal-message-author { font-weight: 800; color: var(--gta-yellow); font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; }
+.internal-message-date   { color: var(--text-muted); font-size: 10px; }
+.internal-message-content { line-height: 1.6; color: var(--text-secondary); font-weight: 500; }
+
+/* ── Message Input Form ──────────────────────────────────────────────────────── */
+.message-form-container { position: sticky; bottom: 0; background: rgba(12,12,16,0.97); backdrop-filter: blur(16px); border: 1px solid var(--border-strong); border-top: 3px solid var(--gta-yellow); border-bottom: none; border-radius: 4px 4px 0 0; margin-top: 10px; box-shadow: 0 -4px 20px rgba(0,0,0,0.9), 0 0 20px rgba(244,200,24,0.06); transition: all 0.2s; }
+.message-form-bar { display: flex; align-items: center; justify-content: space-between; padding: 9px 14px; cursor: pointer; user-select: none; border-bottom: 1px solid var(--separator); background: rgba(244,200,24,0.03); }
+.message-form-bar span { font-weight: 800; font-size: 12px; color: var(--gta-yellow); letter-spacing: 0.12em; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; text-shadow: 0 0 8px rgba(244,200,24,0.35); }
+.message-form-bar .form-toggle-icon { font-size: 10px; color: var(--text-light); transition: transform 0.2s; }
+.message-form-body { padding: 10px 14px 14px; display: none; }
+.message-form-container.open .message-form-body { display: block; }
+.message-form-container.open .form-toggle-icon  { transform: rotate(180deg); }
+.internal-checkbox-container { display: flex; align-items: center; gap: 10px; margin-top: 10px; padding: 8px 12px; background: rgba(244,200,24,0.04); border: 1px dashed rgba(244,200,24,0.25); border-radius: 3px; font-size: 13px; }
+.internal-checkbox-container input[type="checkbox"] { width: 15px; height: 15px; cursor: pointer; accent-color: var(--gta-yellow); }
+.internal-checkbox-container label { cursor: pointer; margin: 0; font-weight: 800; color: var(--gta-yellow); font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* ── Responsive ──────────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) { .ticket-layout { grid-template-columns: 1fr; } .internal-feed { position: relative; max-height: none; } .gta-car-banner { display: none; } }
+@media (max-width: 768px)  { .navbar-content { flex-direction: column; gap: 6px; height: auto; padding: 10px 16px; } .navbar-menu { flex-wrap: wrap; justify-content: center; } .stats-grid { grid-template-columns: 1fr 1fr; } .table { font-size: 12px; } .two-col-layout { grid-template-columns: 1fr; } .public-navbar { padding: 0 14px; } .public-container { padding: 0 14px; } }
+@media (max-width: 480px)  { .stats-grid { grid-template-columns: 1fr; } }
+
+/* ── Git Issue Modal ──────────────────────────────────────────────────────── */
+.git-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+.git-modal-overlay.open { display: flex; }
+.git-modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    position: relative;
+}
+.git-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+.git-modal-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text);
+}
+.git-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    line-height: 1;
+    transition: background 0.15s;
+}
+.git-modal-close:hover { background: var(--border); }
+.git-provider-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.git-provider-badge.github { background: #24292f; color: #fff; }
+.git-provider-badge.gitlab { background: #fc6d26; color: #fff; }
+.git-result-box {
+    padding: 0.75rem 1rem;
+    border-radius: 7px;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    display: none;
+}
+.git-result-box.ok  { background: rgba(22, 163, 74, 0.1);  border: 1px solid rgba(22, 163, 74, 0.25);  color: var(--success); }
+.git-result-box.err { background: rgba(220, 38, 38, 0.08); border: 1px solid rgba(220, 38, 38, 0.2);   color: var(--danger); }
+/* ── YouTrack Modal ───────────────────────────────────────────────────────── */
+.yt-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.yt-modal-overlay.open { display: flex; }
+.yt-modal {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 580px;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+    padding: 1.5rem;
+    position: relative;
+}
+.yt-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+.yt-modal-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text);
+}
+.yt-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: var(--text-light);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    line-height: 1;
+    transition: background 0.15s;
+}
+.yt-modal-close:hover { background: var(--border); }
+.yt-result-box {
+    padding: 0.75rem 1rem;
+    border-radius: 7px;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    display: none;
+}
+.yt-result-box.ok  { background: rgba(22, 163, 74, 0.1);  border: 1px solid rgba(22, 163, 74, 0.3);  color: var(--success); }
+.yt-result-box.err { background: rgba(220, 38, 38, 0.08); border: 1px solid rgba(220, 38, 38, 0.25); color: var(--danger); }

@@ -1,0 +1,117 @@
+# Support System - Apache Configuration
+# Diese Datei verbessert die Sicherheit und Funktionalität
+
+# Benutzerdefinierte Fehlerseiten
+ErrorDocument 404 /support/404.php
+
+# PHP-Einstellungen
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 60
+    php_value max_input_time 60
+</IfModule>
+
+# Verhindere Directory Listing
+Options -Indexes
+
+# Aktiviere URL Rewriting (falls benötigt)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Leite zur HTTPS-Version um (optional, auskommentiert)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Schütze sensible Dateien
+<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$">
+    # Apache 2.4
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    # Apache 2.2
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Schütze config.php vor direktem Zugriff
+<Files "config.php">
+    # Apache 2.4
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    # Apache 2.2
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</Files>
+
+# Schütze installed.lock vor direktem Zugriff
+<Files "installed.lock">
+    # Apache 2.4
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    # Apache 2.2
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</Files>
+
+# Schütze install.php nach der Installation
+# Entfernen Sie das Kommentarzeichen nach der Installation
+# <Files "install.php">
+#     # Apache 2.4
+#     <IfModule mod_authz_core.c>
+#         Require all denied
+#     </IfModule>
+#     # Apache 2.2
+#     <IfModule !mod_authz_core.c>
+#         Order allow,deny
+#         Deny from all
+#     </IfModule>
+# </Files>
+
+# Setze Standard-Zeichensatz
+AddDefaultCharset UTF-8
+
+# Aktiviere Gzip-Kompression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript
+</IfModule>
+
+# Browser-Caching für statische Dateien
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Sicherheits-Header
+<IfModule mod_headers.c>
+    # Verhindere MIME-Type-Sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Aktiviere XSS-Schutz
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Frame-Options (Clickjacking-Schutz)
+    Header always append X-Frame-Options SAMEORIGIN
+
+    # Content-Security-Policy (optional, kann angepasst werden)
+    # Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+</IfModule>
+
+# Fehlerdokumente
+# ErrorDocument 403 /support/403.php
+# ErrorDocument 500 /support/500.php
+
