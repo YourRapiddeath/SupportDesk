@@ -13,11 +13,11 @@ mit Multi-Level-Support, Discord-Integration, GitHub/GitLab-Integration,
 internem Chat, Wissensdatenbank, 27 Design-Themes und vielem mehr.
 
 </div>
-
 ---
 
 ## 📋 Inhaltsverzeichnis
 
+- [Bilder](#-bilder)
 - [Features im Überblick](#-features-im-überblick)
 - [Systemvoraussetzungen](#-systemvoraussetzungen)
 - [Installation](#-installation)
@@ -43,6 +43,35 @@ internem Chat, Wissensdatenbank, 27 Design-Themes und vielem mehr.
 - [Technische Details](#-technische-details)
 
 ---
+
+## Bilder
+
+<p float="left">
+  <a href="https://www.techpotenziale.com/test/assets/images/dashboard.png">
+    <img src="https://www.techpotenziale.com/test/assets/images/dashboard.png" width="300" />
+  </a>
+  <a href="https://www.techpotenziale.com/test/assets/images/ticket.png">
+    <img src="https://www.techpotenziale.com/test/assets/images/ticket.png" width="300" />
+  </a>
+  <a href="https://www.techpotenziale.com/test/assets/images/settings.png">
+    <img src="https://www.techpotenziale.com/test/assets/images/settings.png" width="300" />
+  </a>
+  <a href="https://www.techpotenziale.com/test/assets/images/rp.png">
+    <img src="https://www.techpotenziale.com/test/assets/images/rp.png" width="300" />
+  </a>
+  <a href="https://www.techpotenziale.com/test/assets/images/lang.png">
+    <img src="https://www.techpotenziale.com/test/assets/images/lang.png" width="300" />
+  </a>
+  <a href="https://www.techpotenziale.com/test/assets/images/gihub.png">
+    <img src="https://www.techpotenziale.com/test/assets/images/gihub.png" width="300" />
+  </a>
+  <a href="https://www.techpotenziale.com/test/assets/images/kbdata.png">
+    <img src="https://www.techpotenziale.com/test/assets/images/kbdata.png" width="300" />
+  </a>
+  <a href="https://www.techpotenziale.com/test/assets/images/discord.png">
+    <img src="https://www.techpotenziale.com/test/assets/images/discord.png" width="300" />
+  </a>
+</p>
 
 ## 🚀 Features im Überblick
 
@@ -180,6 +209,8 @@ internem Chat, Wissensdatenbank, 27 Design-Themes und vielem mehr.
 
 5. **Upload-Verzeichnis beschreibbar machen**
    ```bash
+   chmod 755 /
+   chmod 666 config.php
    chmod 755 uploads/
    chmod 755 uploads/avatars/
    chmod 755 uploads/backgrounds/
